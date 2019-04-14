@@ -1,0 +1,340 @@
+
+#include <Servo.h>. 
+#include<SoftwareSerial.h>
+
+// Ultrasonik Sinyal pinleri
+const int trigPin = 9;
+const int echoPin = 8;
+
+const int buzzer=4;
+const int led=3;
+int bluetoothtx=12;
+int bluetoothrx=13;
+long sure;
+int uzunluk;
+
+
+long int odeger;
+
+
+SoftwareSerial bluetooth(bluetoothtx,  bluetoothrx);
+Servo myServo; 
+  
+void setup() {
+  pinMode(buzzer,OUTPUT);
+  pinMode(led,OUTPUT);
+  pinMode(trigPin, OUTPUT); 
+  pinMode(echoPin, INPUT); 
+  Serial.begin(9600);
+  bluetooth.begin(9600);
+  myServo.attach(6); // Servo motor sinyal pini
+ 
+
+}
+
+ void loop() {
+  // 15 derece ile 165 derece arasında dön
+
+ odeger==Serial.read();
+
+  if(bluetooth.available())
+    
+ {
+  odeger=bluetooth.read();
+  if(odeger=='1')
+  {
+ 
+ 
+    for(int i=0;i<=30;i++){ 
+    myServo.write(i); 
+    delay(30);
+    uzunluk = uzunlukhesapla();
+ Serial.print(i);
+ Serial.print(",");
+ Serial.print(uzunluk); 
+ Serial.print(".");
+ if(uzunluk<15)
+{
+  digitalWrite(led,1);
+  digitalWrite(buzzer,1);
+  delay(30);
+  digitalWrite(led,0);
+  digitalWrite(buzzer,0);
+  delay(30);
+  
+}
+} 
+for(int i=30;i>0;i--){  
+  myServo.write(i);
+  delay(30);
+  uzunluk = uzunlukhesapla();
+  Serial.print(i);
+  Serial.print(",");
+  Serial.print(uzunluk);
+  Serial.print(".");
+   if(uzunluk<15)
+{
+  
+  digitalWrite(buzzer,1);
+  delay(30);
+  digitalWrite(buzzer,0);
+  delay(30);
+}
+  }
+  }//odeger==1
+  if(odeger=='2')
+  {
+    for(int i=30;i<=60;i++){ 
+    myServo.write(i); 
+    delay(30);
+    uzunluk = uzunlukhesapla();
+ Serial.print(i);
+ Serial.print(",");
+ Serial.print(uzunluk); 
+ Serial.print(".");
+ if(uzunluk<15)
+{
+  digitalWrite(led,1);
+  digitalWrite(buzzer,1);
+  delay(30);
+  digitalWrite(led,0);
+  digitalWrite(buzzer,0);
+  delay(30);
+  
+}
+} 
+for(int i=60;i>30;i--){  
+  myServo.write(i);
+  delay(30);
+  uzunluk = uzunlukhesapla();
+  Serial.print(i);
+  Serial.print(",");
+  Serial.print(uzunluk);
+  Serial.print(".");
+   if(uzunluk<15)
+{
+  
+  digitalWrite(buzzer,1);
+  delay(30);
+  digitalWrite(buzzer,0);
+  delay(30);
+}
+  }
+  }//odeger==2
+  if(odeger=='3')
+  {
+    for(int i=60;i<=90;i++){ 
+    myServo.write(i); 
+    delay(30);
+    uzunluk = uzunlukhesapla();
+ Serial.print(i);
+ Serial.print(",");
+ Serial.print(uzunluk); 
+ Serial.print(".");
+ if(uzunluk<15)
+{
+  digitalWrite(led,1);
+  digitalWrite(buzzer,1);
+  delay(30);
+  digitalWrite(led,0);
+  digitalWrite(buzzer,0);
+  delay(30);
+  
+}
+} 
+for(int i=90;i>60;i--){  
+  myServo.write(i);
+  delay(30);
+  uzunluk = uzunlukhesapla();
+  Serial.print(i);
+  Serial.print(",");
+  Serial.print(uzunluk);
+  Serial.print(".");
+   if(uzunluk<15)
+{
+  
+  digitalWrite(buzzer,1);
+  delay(30);
+  digitalWrite(buzzer,0);
+  delay(30);
+}
+  }
+    
+  }//odeger==3
+  if(odeger=='4')
+  {
+    for(int i=90;i<=120;i++){ 
+    myServo.write(i); 
+    delay(30);
+    uzunluk = uzunlukhesapla();
+ Serial.print(i);
+ Serial.print(",");
+ Serial.print(uzunluk); 
+ Serial.print(".");
+ if(uzunluk<15)
+{
+  digitalWrite(led,1);
+  digitalWrite(buzzer,1);
+  delay(30);
+  digitalWrite(led,0);
+  digitalWrite(buzzer,0);
+  delay(30);
+  
+}
+} 
+for(int i=120;i>90;i--){  
+  myServo.write(i);
+  delay(30);
+  uzunluk = uzunlukhesapla();
+  Serial.print(i);
+  Serial.print(",");
+  Serial.print(uzunluk);
+  Serial.print(".");
+   if(uzunluk<15)
+{
+  
+  digitalWrite(buzzer,1);
+  delay(30);
+  digitalWrite(buzzer,0);
+  delay(30);
+}
+  }
+  }//odeger==4
+  if(odeger=='5')
+  {
+    for(int i=120;i<=150;i++){ 
+    myServo.write(i); 
+    delay(30);
+    uzunluk = uzunlukhesapla();
+ Serial.print(i);
+ Serial.print(",");
+ Serial.print(uzunluk); 
+ Serial.print(".");
+ if(uzunluk<15)
+{
+  digitalWrite(led,1);
+  digitalWrite(buzzer,1);
+  delay(30);
+  digitalWrite(led,0);
+  digitalWrite(buzzer,0);
+  delay(30);
+  
+}
+} 
+for(int i=150;i>120;i--){  
+  myServo.write(i);
+  delay(30);
+  uzunluk = uzunlukhesapla();
+  Serial.print(i);
+  Serial.print(",");
+  Serial.print(uzunluk);
+  Serial.print(".");
+   if(uzunluk<15)
+{
+  
+  digitalWrite(buzzer,1);
+  delay(30);
+  digitalWrite(buzzer,0);
+  delay(30);
+}
+  }
+  }//odeger==5
+  if(odeger=='6')
+  {
+    for(int i=150;i<=165;i++){ 
+    myServo.write(i); 
+    delay(30);
+    uzunluk = uzunlukhesapla();
+ Serial.print(i);
+ Serial.print(",");
+ Serial.print(uzunluk); 
+ Serial.print(".");
+ if(uzunluk<15)
+{
+  digitalWrite(led,1);
+  digitalWrite(buzzer,1);
+  delay(30);
+  digitalWrite(led,0);
+  digitalWrite(buzzer,0);
+  delay(30);
+  
+}
+} 
+for(int i=165;i>150;i--){  
+  myServo.write(i);
+  delay(30);
+  uzunluk = uzunlukhesapla();
+  Serial.print(i);
+  Serial.print(",");
+  Serial.print(uzunluk);
+  Serial.print(".");
+   if(uzunluk<15)
+{
+  
+  digitalWrite(buzzer,1);
+  delay(30);
+  digitalWrite(buzzer,0);
+  delay(30);
+}
+  }
+  }//odeger==6
+  if(odeger=='7')
+  {
+    for(int i=0;i<=160;i++){ 
+    myServo.write(i); 
+    delay(30);
+    uzunluk = uzunlukhesapla();
+ Serial.print(i);
+ Serial.print(",");
+ Serial.print(uzunluk); 
+ Serial.print(".");
+ if(uzunluk<15)
+{
+  digitalWrite(led,1);
+  digitalWrite(buzzer,1);
+  delay(30);
+  digitalWrite(led,0);
+  digitalWrite(buzzer,0);
+  delay(30);
+  
+}
+} 
+for(int i=160;i>0;i--){  
+  myServo.write(i);
+  delay(30);
+  uzunluk = uzunlukhesapla();
+  Serial.print(i);
+  Serial.print(",");
+  Serial.print(uzunluk);
+  Serial.print(".");
+   if(uzunluk<15)
+{
+  
+  digitalWrite(buzzer,1);
+  delay(30);
+  digitalWrite(buzzer,0);
+  delay(30);
+}
+  }
+  }
+ }
+  myServo.write(0);
+  }
+  
+ 
+ 
+ 
+ 
+  
+int uzunlukhesapla(){ 
+   
+  digitalWrite(trigPin, LOW); 
+  delayMicroseconds(2);
+ 
+  digitalWrite(trigPin, HIGH); 
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  sure = pulseIn(echoPin, HIGH); 
+  uzunluk= sure*0.034/2;
+  return uzunluk;
+}
